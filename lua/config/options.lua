@@ -14,3 +14,15 @@ vim.opt.tabstop = 4 -- 一个 Tab 显示为 4 个空格
 vim.opt.shiftwidth = 4 -- 自动缩进宽度
 vim.opt.softtabstop = 4 -- Tab/退格时的空格数
 vim.opt.expandtab = true -- 将 Tab 转为空格
+
+vim.g.clipboard = {
+    name = "OSC 52",
+    copy = {
+        ["+"] = require("vim.ui.clipboard.osc52").copy("+"),
+        ["*"] = require("vim.ui.clipboard.osc52").copy("*"),
+    },
+    paste = {
+        ["+"] = require("vim.ui.clipboard.osc52").paste("+"),
+        ["*"] = require("vim.ui.clipboard.osc52").paste("*"),
+    },
+}
